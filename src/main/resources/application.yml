@@ -1,0 +1,24 @@
+server:
+  port: 5678
+  
+  
+eureka:
+  instance:
+    app-group-name: mysidecargroup
+    
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  
+spring:
+  application:
+    name: node-reverser-sidecar
+    
+security:
+  basic:
+    enabled: false
+
+
+sidecar:
+  health-uri: http://node-reverser.emea-2.fe.gopivotal.com/health.json
+  home-page-uri: http://node-reverser.emea-2.fe.gopivotal.com/

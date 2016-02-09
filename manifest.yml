@@ -1,0 +1,14 @@
+---
+timeout: 180
+instances: 1
+memory: 700M
+env:
+    SPRING_PROFILES_ACTIVE: cloud
+    JAVA_OPTS: -Djava.security.egd=file:///dev/urandom
+applications:
+- name: sidecar
+  host: sidecar-${random-word}
+  path: target/node-string-reverser-sidecar-0.0.1-SNAPSHOT.jar
+  services:
+  - service-registry
+    
